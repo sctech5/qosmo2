@@ -13,9 +13,6 @@ addEventListener('load', () => {
 	
 	el({a:'div', b:a, c:'Network Performance', d:{class:'title1'}});
 	
-	//width 640 360 440 = 1440
-	//      45  25  30
-	
 	//card1
 	(a => {
 		a = el({a:'div', b:a, d:{id:'card1'}})
@@ -180,6 +177,7 @@ addEventListener('load', () => {
 				el({a:'td', b:a, c:'4G'})
 				
 				const b = el({a:'div', b:el({a:'td', b:a}) })
+				b.style.background = 'green'
 				el({a:'div', b:b, c:'PacketLoss'})
 				el({a:'div', b:b, c:'T : 99.5%'})
 				el({a:'div', b:b, c:'R : 99.5%'})
@@ -353,6 +351,92 @@ addEventListener('load', () => {
 		a = el({a:'div', b:a, d:{id:'card5'}})
 		el({a:'div', b:a, c:'Global Vs CDN Experience', d:{class:'title2'}});
 		
+		const b = el({a:'canvas', b:el({a:'div', b:a, d:{style:'position:relative; margin:0; padding:2vh 0.5vw; width:24vw; height:38.5vh; display:flex; align-items:center; justify-content:center;'}})})
+		
+		b.width = parseInt(b.parentElement.getBoundingClientRect().width)
+		b.height = parseInt(b.parentElement.getBoundingClientRect().height)
+		const ilogo = ['img/yt.svg', 'img/fb.svg', 'img/ml.svg', 'img/tt.svg'].map(a => {
+			const image = new Image()
+			image.src = a
+			return image
+		})
+		
+		new Chart(b, {
+			type: 'bar',
+			data: {
+				labels: ['Youtube', 'facebook', 'Mobile Legends', 'Titok'],
+				datasets: [{
+					label: 'Global',
+					data: [-100, -90, -80, -70, -60],
+					fill: false,
+					backgroundColor: '#477F9F',
+					borderColor: '#477F9F',
+				},{
+					data: [-0, -10, -20, -30, -40],
+					fill: false,
+					backgroundColor: '#D9D9D9',
+					borderColor: '#D9D9D9',
+				},
+				{
+					label: 'CDN',
+					data: [100, 90, 80, 70, 60],
+					fill: false,
+					backgroundColor: '#B28E65',
+					borderColor: '#B28E65',
+				},{
+					data: [0, 10, 20, 30, 40],
+					fill: false,
+					backgroundColor: '#D9D9D9',
+					borderColor: '#D9D9D9',
+				},
+				]
+			},
+			options: {
+				indexAxis: 'y',
+				responsive: true,
+				plugins: {
+					datalabels: {
+						color: 'rgba(0,0,0,0)',
+						//formatter: function (value) { return Math.round(value) + '%' },
+						//font: {
+						//	weight: 'bold',
+						//	size: 16,
+						//}
+					},
+					legend: { display: false, },
+					afterDraw: chart => {
+						conole.log('a')
+						var ctx = chart.chart.ctx;
+						var xAxis = chart.scales['x-axis-0'];
+						var yAxis = chart.scales['y-axis-0'];
+						xAxis.ticks.forEach((value, index) => {
+							var x = xAxis.getPixelForTick(index);
+							ctx.drawImage(ilogo[index], x - 12, yAxis.bottom + 10);
+						});
+					}
+				},
+				scales: {
+					y: {
+						stacked: true,
+					},
+					x: {
+						stacked: true,
+						ticks: {
+							callback: value => Math.abs(value)
+						}
+					}
+				},
+				tooltips: {
+					callbacks: {
+						label: (tooltipItem, data) => {
+							const ds = data.datasets[tooltipItem.datasetIndex];
+							return ds.label + ': ' + Math.abs( ds.data[tooltipItem.index]);
+						}
+					}
+				},
+			}
+		})
+		
 	})(a);
 	
 	//card6
@@ -360,6 +444,193 @@ addEventListener('load', () => {
 		a = el({a:'div', b:a, d:{id:'card6'}})
 		el({a:'div', b:a, c:'City Lose Performance', d:{class:'title2'}});
 		
+		(a => {
+			
+			const b = el({a:'canvas', b:el({a:'div', b:a, d:{style:'position:relative; width:33vw; height:33vh; display:flex; align-items:center; justify-content:center;'}})})
+			//b.width = parseInt(a.getBoundingClientRect().width)
+			//b.height = parseInt(a.getBoundingClientRect().height)
+			console.log(a.getBoundingClientRect())
+			console.log(b)
+			
+			new Chart(b, {
+				type: 'doughnut',
+				data: {
+					labels: ['Platinum', 'Gold', 'Silver', 'Bronze'],
+					datasets: [{
+						data: [35,30,20,15],
+						borderWidth: 0,
+						backgroundColor: [
+							'#999A9E',
+							'#D3AF3D',
+							'#D9D9D9',
+							'#B28E65',
+						],
+						labels: ['Platinum', 'Gold', 'Silver', 'Bronze'],
+					}]
+				},
+				options: {
+					responsive: true,
+					plugins: {
+						datalabels: {
+							color: '#000',
+							//formatter: (a, b) => `${b.dataset.labels[b.dataIndex]}\n${parseInt(a).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")}`,
+							//formatter: function (value) { return Math.round(value) + '%' },
+							//font: {
+							//	weight: 'bold',
+							//	size: 16,
+							//}
+						},
+						legend: { position: 'right', },
+    				},
+ 				},
+			})
+			
+		//{style:' width:24vw; height:38.5vh;'}})})
+		})(el({a:'div', b:a, d:{style:'margin:0; padding:0; width:28vw; height:21vh; display:flex; align-items:center; justify-content:center;'}}));
+		
+		(a => {
+			const b = el({a:'div', b:a, d:{style:'width:8.5vw; height:15vh;'}})
+			
+			const b1 = el({a:'canvas', b:b})
+			
+			b1.width = parseInt(b.getBoundingClientRect().width)
+			b1.height = parseInt(b.getBoundingClientRect().height)
+			
+			new Chart(b1, {
+				type: 'line',
+				data: {
+					labels: [],
+					datasets: [{
+						label: 'Treg1',
+						data: [],
+						fill: false,
+						backgroundColor: '#f00',
+						borderColor: '#f00',
+					},]
+				},
+				options: {
+					plugins: {
+						datalabels: { color: 'rgba(0,0,0,0)', },
+						legend: { display: false, }
+					},
+					scales: {
+						y: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								beginAtZero: true
+							}
+						},
+						x: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								//beginAtZero: true
+							}
+						}
+					},
+				}
+			})
+			
+			
+			const c = el({a:'div', b:a, d:{style:'width:8.5vw; height:15vh;'}})
+			
+			const c1 = el({a:'canvas', b:c})
+			
+			c1.width = parseInt(c.getBoundingClientRect().width)
+			c1.height = parseInt(c.getBoundingClientRect().height)
+			
+			new Chart(c1, {
+				type: 'line',
+				data: {
+					labels: [],
+					datasets: [{
+						label: 'Treg1',
+						data: [],
+						fill: false,
+						backgroundColor: '#f00',
+						borderColor: '#f00',
+					},]
+				},
+				options: {
+					plugins: {
+						datalabels: { color: 'rgba(0,0,0,0)', },
+						legend: { display: false, }
+					},
+					scales: {
+						y: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								beginAtZero: true
+							}
+						},
+						x: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								//beginAtZero: true
+							}
+						}
+					},
+				}
+			})
+			
+			
+			const d = el({a:'div', b:a, d:{style:'width:8.5vw; height:15vh;'}})
+			
+			const d1 = el({a:'canvas', b:d})
+			
+			d1.width = parseInt(d.getBoundingClientRect().width)
+			d1.height = parseInt(d.getBoundingClientRect().height)
+			
+			new Chart(d1, {
+				type: 'line',
+				data: {
+					labels: [],
+					datasets: [{
+						label: 'Treg1',
+						data: [],
+						fill: false,
+						backgroundColor: '#f00',
+						borderColor: '#f00',
+					},]
+				},
+				options: {
+					plugins: {
+						datalabels: { color: 'rgba(0,0,0,0)', },
+						legend: { display: false, }
+					},
+					scales: {
+						y: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								beginAtZero: true
+							}
+						},
+						x: {
+							ticks: {
+								color: "#000",
+								font: { size: 9, },
+								//stepSize: 1,
+								//beginAtZero: true
+							}
+						}
+					},
+				}
+			})
+			
+			
+		})(el({a:'div', b:a, d:{style:'height:17vh; display:flex; gap:0.1vw; align-items:center; justify-content:space-around;'}}));
+		//322   133   103
+		//      0.4   0.3
+		//42.5  21    17
 	})(a)
 	
 	
