@@ -66,7 +66,7 @@ addEventListener('load', () => {
 		b.width = parseInt(b.parentElement.getBoundingClientRect().width)
 		b.height = parseInt(b.parentElement.getBoundingClientRect().height)
 		
-		new Chart(b, {
+		m.chart1 = new Chart(b, {
 			type: 'line',
 			data: {
 				labels: [],
@@ -76,6 +76,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#f00',
 					borderColor: '#f00',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg2',
@@ -83,6 +85,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#00f',
 					borderColor: '#00f',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg3',
@@ -90,6 +94,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#0f0',
 					borderColor: '#0f0',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg4',
@@ -97,6 +103,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#ff0',
 					borderColor: '#ff0',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg5',
@@ -104,6 +112,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#f0f',
 					borderColor: '#f0f',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg6',
@@ -111,6 +121,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#0ff',
 					borderColor: '#0ff',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				{
 					label: 'Treg7',
@@ -118,6 +130,8 @@ addEventListener('load', () => {
 					fill: false,
 					backgroundColor: '#333',
 					borderColor: '#333',
+					borderWidth: 1,
+					radius: 1.5,
 				},
 				]
 			},
@@ -182,10 +196,12 @@ addEventListener('load', () => {
 				el({a:'div', b:b, c:'T : 99.5%'})
 				el({a:'div', b:b, c:'R : 99.5%'})
 				const c = el({a:'div', b:el({a:'td', b:a}) })
+				c.style.background = 'green'
 				el({a:'div', b:c, c:'Latency'})
 				el({a:'div', b:c, c:'T : 99.5%'})
 				el({a:'div', b:c, c:'R : 99.5%'})
 				const d = el({a:'div', b:el({a:'td', b:a}) })
+				d.style.background = 'red'
 				el({a:'div', b:d, c:'Jitter'})
 				el({a:'div', b:d, c:'T : 99.5%'})
 				el({a:'div', b:d, c:'R : 99.5%'})
@@ -196,14 +212,17 @@ addEventListener('load', () => {
 				el({a:'td', b:a, c:'CTI'})
 				
 				const b = el({a:'div', b:el({a:'td', b:a}) })
+				b.style.background = 'green'
 				el({a:'div', b:b, c:'PacketLoss'})
 				el({a:'div', b:b, c:'T : 99.5%'})
 				el({a:'div', b:b, c:'R : 99.5%'})
 				const c = el({a:'div', b:el({a:'td', b:a}) })
+				c.style.background = 'green'
 				el({a:'div', b:c, c:'Latency'})
 				el({a:'div', b:c, c:'T : 99.5%'})
 				el({a:'div', b:c, c:'R : 99.5%'})
 				const d = el({a:'div', b:el({a:'td', b:a}) })
+				d.style.background = 'green'
 				el({a:'div', b:d, c:'Jitter'})
 				el({a:'div', b:d, c:'T : 99.5%'})
 				el({a:'div', b:d, c:'R : 99.5%'})
@@ -219,58 +238,36 @@ addEventListener('load', () => {
 			b.width = parseInt(b.parentElement.getBoundingClientRect().width)
 			b.height = parseInt(b.parentElement.getBoundingClientRect().height)
 			
-			new Chart(b, {
+			m.chart2 = new Chart(b, {
 				type: 'line',
 				data: {
 					labels: [],
 					datasets: [{
-						label: 'Treg1',
+						label: 'Packetloss',
 						data: [],
 						fill: false,
-						backgroundColor: '#f00',
-						borderColor: '#f00',
+						backgroundColor: '#999A9E',
+						borderColor: '#999A9E',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					{
-						label: 'Treg2',
+						label: 'Latency',
 						data: [],
 						fill: false,
-						backgroundColor: '#00f',
-						borderColor: '#00f',
+						backgroundColor: '#D3AF3D',
+						borderColor: '#D3AF3D',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					{
-						label: 'Treg3',
+						label: 'Jitter',
 						data: [],
 						fill: false,
-						backgroundColor: '#0f0',
-						borderColor: '#0f0',
-					},
-					{
-						label: 'Treg4',
-						data: [],
-						fill: false,
-						backgroundColor: '#ff0',
-						borderColor: '#ff0',
-					},
-					{
-						label: 'Treg5',
-						data: [],
-						fill: false,
-						backgroundColor: '#f0f',
-						borderColor: '#f0f',
-					},
-					{
-						label: 'Treg6',
-						data: [],
-						fill: false,
-						backgroundColor: '#0ff',
-						borderColor: '#0ff',
-					},
-					{
-						label: 'Treg7',
-						data: [],
-						fill: false,
-						backgroundColor: '#333',
-						borderColor: '#333',
+						backgroundColor: '#D9D9D9',
+						borderColor: '#D9D9D9',
+						borderWidth: 1,
+						radius: 1.5,
 					},
 					]
 				},
@@ -314,10 +311,18 @@ addEventListener('load', () => {
 				}
 			})
 
-		})(el({a:'div', b:a, d:{style:'position:relative; margin:0; padding:0.5vh 1vw 0.5vh 2vw; width:29vw; height:27vh; display:flex; align-items:center; justify-content:center;'}}))
-		//322
-		//44
-		//88
+		})(el({a:'div', b:a, d:{style:'position:relative; margin:0; padding:0.5vh 1vw 0 2vw; width:29vw; height:27vh; display:flex; align-items:center; justify-content:center;'}}));
+		
+		//slider
+		(a => {
+			
+			el({a:'input', b:a, d:{type:'checkbox', class:'slider-checkbox'}, e:{change:a=>{
+				//chart3[0].data.datasets = JSON.parse(chart3[0].canvas.getAttribute('data-a'))[a.target.checked ?  0 : 1]
+				//chart3[0].update()
+			}}})
+			el({a:'div', b:el({a:'div', b:el({a:'div', b:a, d:{class:'slider1'}}), c:'Weekly'}).parentElement, c:'Monthly'})
+			
+		})(el({a:'label', b:a, d:{id:'slider1'}}))
 		
 	})(a)
 	
@@ -361,8 +366,18 @@ addEventListener('load', () => {
 			return image
 		})
 		
-		new Chart(b, {
+		m.chart3 = new Chart(b, {
 			type: 'bar',
+			plugins: [{
+				afterDraw: a => {
+					const ctx = a.ctx
+					const xAxis = a.scales.x
+					const yAxis = a.scales.y
+					yAxis.ticks.forEach((value, index) => {
+						ctx.drawImage(ilogo[index], xAxis.left - (ilogo[index].width + 5), yAxis.getPixelForTick(index) - 9)
+					})
+				}
+			}],
 			data: {
 				labels: ['Youtube', 'facebook', 'Mobile Legends', 'Titok'],
 				datasets: [{
@@ -404,36 +419,32 @@ addEventListener('load', () => {
 						//}
 					},
 					legend: { display: false, },
-					afterDraw: chart => {
-						conole.log('a')
-						var ctx = chart.chart.ctx;
-						var xAxis = chart.scales['x-axis-0'];
-						var yAxis = chart.scales['y-axis-0'];
-						xAxis.ticks.forEach((value, index) => {
-							var x = xAxis.getPixelForTick(index);
-							ctx.drawImage(ilogo[index], x - 12, yAxis.bottom + 10);
-						});
-					}
 				},
 				scales: {
 					y: {
 						stacked: true,
+						grid: {
+							color: 'rgba(0,0,0,0)',
+						},
+						ticks: {
+							color: 'rgba(0,0,0,0)',
+						},
 					},
 					x: {
 						stacked: true,
-						ticks: {
-							callback: value => Math.abs(value)
-						}
+						ticks: { callback: value => Math.abs(value) }
 					}
 				},
+				/*
 				tooltips: {
 					callbacks: {
 						label: (tooltipItem, data) => {
+							console.log('a')
 							const ds = data.datasets[tooltipItem.datasetIndex];
 							return ds.label + ': ' + Math.abs( ds.data[tooltipItem.index]);
 						}
 					}
-				},
+				},*/
 			}
 		})
 		
@@ -449,10 +460,8 @@ addEventListener('load', () => {
 			const b = el({a:'canvas', b:el({a:'div', b:a, d:{style:'position:relative; width:33vw; height:33vh; display:flex; align-items:center; justify-content:center;'}})})
 			//b.width = parseInt(a.getBoundingClientRect().width)
 			//b.height = parseInt(a.getBoundingClientRect().height)
-			console.log(a.getBoundingClientRect())
-			console.log(b)
 			
-			new Chart(b, {
+			m.chart4 = new Chart(b, {
 				type: 'doughnut',
 				data: {
 					labels: ['Platinum', 'Gold', 'Silver', 'Bronze'],
@@ -496,20 +505,23 @@ addEventListener('load', () => {
 			b1.width = parseInt(b.getBoundingClientRect().width)
 			b1.height = parseInt(b.getBoundingClientRect().height)
 			
-			new Chart(b1, {
+			m.chart5 = new Chart(b1, {
 				type: 'line',
 				data: {
 					labels: [],
 					datasets: [{
-						label: 'Treg1',
+						label: 'packetloss',
 						data: [],
 						fill: false,
-						backgroundColor: '#f00',
-						borderColor: '#f00',
+						backgroundColor: '#477F9F',
+						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
 					plugins: {
+						title: { text: 'Packetloss' },
 						datalabels: { color: 'rgba(0,0,0,0)', },
 						legend: { display: false, }
 					},
@@ -542,20 +554,23 @@ addEventListener('load', () => {
 			c1.width = parseInt(c.getBoundingClientRect().width)
 			c1.height = parseInt(c.getBoundingClientRect().height)
 			
-			new Chart(c1, {
+			m.chart6 = new Chart(c1, {
 				type: 'line',
 				data: {
 					labels: [],
 					datasets: [{
-						label: 'Treg1',
+						label: 'Latency',
 						data: [],
 						fill: false,
-						backgroundColor: '#f00',
-						borderColor: '#f00',
+						backgroundColor: '#477F9F',
+						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
 					plugins: {
+						title: { text: 'Latency' },
 						datalabels: { color: 'rgba(0,0,0,0)', },
 						legend: { display: false, }
 					},
@@ -588,20 +603,23 @@ addEventListener('load', () => {
 			d1.width = parseInt(d.getBoundingClientRect().width)
 			d1.height = parseInt(d.getBoundingClientRect().height)
 			
-			new Chart(d1, {
+			m.chart7 = new Chart(d1, {
 				type: 'line',
 				data: {
 					labels: [],
 					datasets: [{
-						label: 'Treg1',
+						label: 'Jitter',
 						data: [],
 						fill: false,
-						backgroundColor: '#f00',
-						borderColor: '#f00',
+						backgroundColor: '#477F9F',
+						borderColor: '#477F9F',
+						borderWidth: 1,
+						radius: 1.5,
 					},]
 				},
 				options: {
 					plugins: {
+						title: { text: 'Jitter' },
 						datalabels: { color: 'rgba(0,0,0,0)', },
 						legend: { display: false, }
 					},
@@ -633,5 +651,40 @@ addEventListener('load', () => {
 		//42.5  21    17
 	})(a)
 	
+	
+	
+	//isi data
+	m.chart1.data.labels = ['Jul', 'Jun', 'Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.chart1.data.datasets.forEach((_, a) => {
+		m.chart1.data.labels.forEach(_ => { m.chart1.data.datasets[a].data.push(Math.round(Math.random() * 100)) })
+	})
+	m.chart1.update()
+	
+	m.chart2.data.labels = ['Jul', 'Jun', 'Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.chart2.data.datasets.forEach((_, a) => {
+		m.chart2.data.labels.forEach(_ => { m.chart2.data.datasets[a].data.push(Math.round(Math.random() * 100)) })
+	})
+	m.chart2.update()
+	
+	m.chart3.data.labels.forEach((_,a) => {
+		const b = Math.round(Math.random() * 100)
+		m.chart3.data.datasets[0].data[a] = b - 100
+		m.chart3.data.datasets[1].data[a] = -1 * b
+		m.chart3.data.datasets[2].data[a] = b
+		m.chart3.data.datasets[3].data[a] = 100 - b
+	})
+	m.chart3.update()
+	
+	m.chart5.data.labels = ['Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.chart5.data.labels.forEach(_ => { m.chart5.data.datasets[0].data.push(Math.random().toFixed(2)) })
+	m.chart5.update()
+	
+	m.chart6.data.labels = ['Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.chart6.data.labels.forEach(_ => { m.chart6.data.datasets[0].data.push(Math.random().toFixed(2)) })
+	m.chart6.update()
+	
+	m.chart7.data.labels = ['Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.chart7.data.labels.forEach(_ => { m.chart7.data.datasets[0].data.push(Math.random().toFixed(2)) })
+	m.chart7.update()
 	
 })
