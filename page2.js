@@ -1,18 +1,34 @@
-m = {}
+m = {
+	sla: {},
+	quality: {},
+	cdn: {},
+}
 
 addEventListener('load', () => {
 	
+	({
+		sla_performance: a => { sla() },
+		quality_performance: a => { quality() },
+		cdn_performance: a => { cdn() },
+	})[(new URLSearchParams(location.search).get('page') || 'sla_performance').toLowerCase()]()
+	
+	/*
 	const a = el({a:'div', b:document.body});
 	
 	//navbar
 	(a => {
-		a = el({a:'div', b:a, d:{id:'navbar'}})
 		el({a:'div', b:a, c:'Qosmo Dashboard'})
 		el({a:'img', b:a, d:{src:'img/Logout2.svg'}})
-	})(a)
+	})(el({a:'div', b:a, d:{id:'navbar'}}));
 	
-	el({a:'div', b:a, c:'Network Performance', d:{class:'title1'}});
-	
+	(a => {
+		a = el({a:'select', b:a})
+		el({a:'option', b:a, c:'SLA Performance', d:{value:'SLA Performance'} })
+		el({a:'option', b:a, c:'Quality Performance', d:{value:'Quality Performance'} })
+		el({a:'option', b:a, c:'CDN Performance', d:{value:'CDN Performance'} })
+	})(el({a:'div', b:a, d:{class:'title1'}}));
+	*/
+	/*
 	//card1
 	(a => {
 		a = el({a:'div', b:a, d:{id:'card1'}})
@@ -374,14 +390,7 @@ addEventListener('load', () => {
 		el({a:'div', b:el({a:'div', b:a.children[23]}), c:'Winner'})
 		el({a:'div', b:el({a:'div', b:a.children[24]}), c:'Winner'})
 		el({a:'div', b:el({a:'div', b:a.children[34]}), c:'Winner'})
-		/*
-		el({a:'div', b:a.children[8], c:'Winner'})
-		el({a:'div', b:a.children[11], c:'Winner'})
-		el({a:'div', b:a.children[12], c:'Winner'})
-		el({a:'div', b:a.children[23], c:'Winner'})
-		el({a:'div', b:a.children[24], c:'Winner'})
-		el({a:'div', b:a.children[34], c:'Winner'})
-		*/
+		
 	})(a);
 	
 	//card5
@@ -468,16 +477,6 @@ addEventListener('load', () => {
 						ticks: { callback: value => Math.abs(value) }
 					}
 				},
-				/*
-				tooltips: {
-					callbacks: {
-						label: (tooltipItem, data) => {
-							console.log('a')
-							const ds = data.datasets[tooltipItem.datasetIndex];
-							return ds.label + ': ' + Math.abs( ds.data[tooltipItem.index]);
-						}
-					}
-				},*/
 			}
 		})
 		
@@ -722,5 +721,7 @@ addEventListener('load', () => {
 	m.chart7.data.labels = ['Mei', 'Apr', 'Mar', 'Feb', 'Jan']
 	m.chart7.data.labels.forEach(_ => { m.chart7.data.datasets[0].data.push(Math.random().toFixed(2)) })
 	m.chart7.update()
+	*/
+	
 	
 })

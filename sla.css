@@ -1,0 +1,110 @@
+.sla-card1 {
+	border-bottom: 1px solid #D9D9D9;
+	border-right: 1px solid #D9D9D9;
+	position: absolute;
+	left: 0;
+	/*top: 9vh;*/
+	width: 63vw;
+	height: 45vh;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: center;
+}
+.sla-card1 > div:nth-child(1) {
+	font-size: 2.5vmin;
+	font-weight: bold;
+	width: 60vw;
+	height: 5.5vh;
+	line-height: 5.5vh;
+}
+.sla-card1 > div:nth-child(2) {
+	width: 60vw;
+	height: 37.5vh;
+	display: grid;
+	grid-template-columns: calc(5.2vw - 1px) calc(5.7vw - 1px) calc(7.9vw - 1px) calc(5.7vw - 1px) calc(7.9vw - 1px) calc(5.7vw - 1px) calc(7.9vw - 1px) calc(5.7vw - 1px) calc(7.9vw - 1px);
+	/*grid-template-rows: repeat(calc(3.75vh - 1px), 10);*/
+	gap: 1px;
+	align-items: start;
+}
+.sla-card1 > div:nth-child(2) > div {
+	background: #477F9F;
+	color: #ffffff;
+	font-size: 1.5vmin;
+	font-weight: bold;
+	line-height: calc(3.75vh - 1px);
+	text-align: center;
+	height: calc(3.75vh - 1px);
+}
+.sla-card1 > div:nth-child(2) > div:nth-child(n+15) {
+	background: #F4F5F6;
+	color: #101010;
+	font-size: 1.5vmin;
+	font-weight: normal;
+	height: calc(3.75vh - 1px);
+	line-height: calc(3.75vh - 1px);
+}
+
+.sla-card2 {
+	border-bottom: 1px solid #D9D9D9;
+	position: absolute;
+	left: 63vw;
+	/*top: 9vh;*/
+	width: 37vw;
+	height: 45vh;
+	display: flex;
+	flex-direction: column;
+	gap: 0;
+	align-items: center;
+}
+.sla-card2 > div:nth-child(1) {
+	font-size: 2.5vmin;
+	font-weight: bold;
+	width: 33.4vw;
+	height: 5.5vh;
+	line-height: 5.5vh;
+}
+.sla-card2 > div:nth-child(2) {
+	width: 33.4vw;
+	height: 11vh;
+	display: grid;
+	grid-template-columns: min-content repeat(3,1fr);
+	gap: 1.3px;
+	align-items: start;
+}
+.sla-card2 > div:nth-child(2) > div:nth-child(n+2) {
+	background: #477F9F;
+	color: #ffffff;
+	font-size: 1.5vmin;
+	font-weight: bold;
+	text-align: center;
+	height: calc(3.75vh - 1.3px);
+	line-height: calc(3.75vh - 1px);
+}
+.sla-card2 > div:nth-child(2) > div:nth-child(n+6) {
+	background: #F4F5F6;
+	color: #101010;
+	font-weight: normal;
+}
+.sla-card2 > div:nth-child(2) > div:nth-child(5) {
+	background: none;
+	color: #101010;
+	padding: 0 3px;
+}
+.sla-card2 > div:nth-child(2) > div:nth-child(9) {
+	background: none;
+	color: #101010;
+	font-weight: bold;
+	padding: 0 3px;
+}
+
+.sla-card2 > div:nth-child(3) {
+	width: 33.4vw;
+	height: 26.5vh;
+	position: relative;
+	margin: 0.5vh 0 0 0;
+	padding: 0;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
