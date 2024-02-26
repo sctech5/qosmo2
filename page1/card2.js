@@ -16,7 +16,7 @@ const page1Card2 = a => {
 	b.width = parseInt(b.parentElement.getBoundingClientRect().width)
 	b.height = parseInt(b.parentElement.getBoundingClientRect().height)
 	
-	new Chart(b, {
+	m.p1.c2 = new Chart(b, {
 		type: 'line',
 		data: {
 			labels: [],
@@ -26,6 +26,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#f00',
 				borderColor: '#f00',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg2',
@@ -33,6 +36,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#00f',
 				borderColor: '#00f',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg3',
@@ -40,6 +46,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#0f0',
 				borderColor: '#0f0',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg4',
@@ -47,6 +56,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#ff0',
 				borderColor: '#ff0',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg5',
@@ -54,6 +66,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#f0f',
 				borderColor: '#f0f',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg6',
@@ -61,6 +76,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#0ff',
 				borderColor: '#0ff',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			{
 				label: 'Treg7',
@@ -68,6 +86,9 @@ const page1Card2 = a => {
 				fill: false,
 				backgroundColor: '#333',
 				borderColor: '#333',
+				borderWidth: 1,
+				radius: 1.5,
+				tension: 0.3,
 			},
 			]
 		},
@@ -112,5 +133,14 @@ const page1Card2 = a => {
 			},
 		}
 	})
+	
+	
+	// isi data ====================================================================================
+	
+	m.p1.c2.data.labels = ['Jul', 'Jun', 'Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.p1.c2.data.datasets.forEach((_, a) => {
+		m.p1.c2.data.labels.forEach(_ => { m.p1.c2.data.datasets[a].data.push(Math.round(Math.random() * 100)) })
+	})
+	m.p1.c2.update()
 	
 }
