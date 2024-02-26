@@ -68,7 +68,7 @@ const page2Card7 = a => {
 			b.width = parseInt(b.parentElement.getBoundingClientRect().width)
 			b.height = parseInt(b.parentElement.getBoundingClientRect().height)
 			
-			m.chart2 = new Chart(b, {
+			m.p2.c7 = new Chart(b, {
 				type: 'line',
 				data: {
 					labels: [],
@@ -147,5 +147,14 @@ const page2Card7 = a => {
 		})(el({a:'div', b:a, d:{style:'position:relative; margin:0; padding:0.5vh 1vw 0 2vw; width:29vw; height:27vh; display:flex; align-items:center; justify-content:center;'}}));
 		
 	})(el({a:'div', b:a}))
+	
+	
+	// isi data ====================================================================================
+	
+	m.p2.c7.data.labels = ['Jul', 'Jun', 'Mei', 'Apr', 'Mar', 'Feb', 'Jan']
+	m.p2.c7.data.datasets.forEach((_, a) => {
+		m.p2.c7.data.labels.forEach(_ => { m.p2.c7.data.datasets[a].data.push(Math.round(Math.random() * 100)) })
+	})
+	m.p2.c7.update()
 	
 }
