@@ -7,25 +7,29 @@ m = {
 }
 
 const navtopClick = a => {
+	location = '?page=' + [,'home', 'core', 'access', 'ticket', 'sla', 'cdn', 'order'][[...a.target.parentElement.children].indexOf(a.target)]
+	/*
 	if (!a.target.classList.contains('active')) {
 		a.target.parentElement.querySelector('div.active').classList.remove('active')
 		a.target.classList.add('active')
-		consle.log([...a.target.parentElement.children].indexOf(a.target))
+		console.log([...a.target.parentElement.children].indexOf(a.target))
 	}
+	*/
 }
 
 const navtop = a => {
-	a = el({a:'div', b:a, d:{id:'navtop'} });
+	a = el({a:'div', b:a, d:{id:'navtop'} })
+	const b = window.location.search.substring(1).split('&').reduce((a,b) => (b ? {...a, ...JSON.parse(`{"${decodeURIComponent(b.split('=')[0])}" : "${decodeURIComponent(b.split('=')[1])}"}`) } :  a), {}).page || 'home';
 	
 	(a => {
 		el({a:'div', b:a, c:'QOSMO'})
-		el({a:'div', b:a, c:'Home', d:{class:'active'}, e:{click:navtopClick} })
-		el({a:'div', b:a, c:'Core Performance', e:{click:navtopClick} })
-		el({a:'div', b:a, c:'Access Performance', e:{click:navtopClick} })
-		el({a:'div', b:a, c:'Ticket Quality', e:{click:navtopClick} })
-		el({a:'div', b:a, c:'SLA', e:{click:navtopClick} })
-		el({a:'div', b:a, c:'CDN Performance', e:{click:navtopClick} })
-		el({a:'div', b:a, c:'Order', e:{click:navtopClick} })
+		el({a:'div', b:a, c:'Home', d: b=='home' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'Core Performance', d: b=='core' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'Access Performance', d: b=='access' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'Ticket Quality', d: b=='ticket' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'SLA', d: b=='sla' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'CDN Performance', d: b=='cdn' ? {class:'active'} : {}, e:{click:navtopClick} })
+		el({a:'div', b:a, c:'Order', d: b=='order' ? {class:'active'} : {}, e:{click:navtopClick} })
 	})(el({a:'div', b:a}));
 	
 	(a => {
@@ -43,12 +47,16 @@ const navtop = a => {
 
 addEventListener('load', () => {
 	
-	map1(document.body)
-	page1card1(document.body)
-	page1card2(document.body)
-	page1card3(document.body)
-	page1card4(document.body)
-	page1card5(document.body)
+	const b = window.location.search.substring(1).split('&').reduce((a,b) => (b ? {...a, ...JSON.parse(`{"${decodeURIComponent(b.split('=')[0])}" : "${decodeURIComponent(b.split('=')[1])}"}`) } :  a), {})
+	
+	if (b.page) {
+		
+		if (b.page == 'core') core1(document.body);
+		else if (b.page == 'access') access1(document.body);
+		else page1(document.body)
+		
+	} else page1(document.body)
+	
 	
 	navtop(document.body)
 	
