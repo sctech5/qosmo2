@@ -105,3 +105,6 @@
 	width: 61vw;
 	height: 61vh;
 }
+#map1 > div.access1 {
+	left: 30vw;
+}
