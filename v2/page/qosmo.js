@@ -53,6 +53,7 @@ addEventListener('load', () => {
 		
 		if (b.page == 'core') core1(document.body);
 		else if (b.page == 'access') access1(document.body);
+		else if (b.page == 'ticket') ticket1(document.body);
 		else page1(document.body)
 		
 	} else page1(document.body)
